@@ -28,7 +28,7 @@ body{
 .episode-container{
  background-color: #1D0029;
  color: white;
- width: 30%;
+ width: 31%;
   text-align: center;
   margin: 10px;
   padding: 10px;
@@ -48,7 +48,7 @@ img{
 
 .form{
   display: flex;
-  margin-left: 9.2rem;
+  margin-left: 8.5rem;
 }
 
  .input{
@@ -62,7 +62,6 @@ img{
 
 }
 
- 
  .display{
    margin-left: 1.5rem;
    color: black;
