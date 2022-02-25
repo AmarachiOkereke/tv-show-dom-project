@@ -1,3 +1,84 @@
 #root {
-  color: red;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
+body{
+  background-color: #F4ECE6;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.episode-title{
+  box-shadow: 3px 3px #1D0029;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #1D0029;
+  color: whitesmoke;
+ 
+} 
+.episode-title:hover{
+  text-decoration: underline;
+}
+.episode-container{
+ background-color: #1D0029;
+ color: white;
+ width: 30%;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 3px 3px whitesmoke;
+  border-radius: 10px;
+}
+
+.episode-summary{
+ line-height: 1.5rem;
+ text-align: start;
+ margin-left: 1rem;
+}
+
+img{
+  max-width: 100%;
+}
+
+.form{
+  display: flex;
+  margin-left: 9.2rem;
+}
+
+ .input{
+   margin-left: 1rem;
+   border: none;
+ }
+
+ input::placeholder {
+  font-style: italic;
+  padding: 1rem;
+
+}
+
+ 
+ .display{
+   margin-left: 1.5rem;
+   color: black;
+ }
+
+ h1{
+   text-align: center;
+   color: black;
+   padding: 2rem;
+ }
+
+  .select-epi{
+   border: none;
+   background-color: white;
+ } 
+
+ .link{
+   text-align: center;
+ }
