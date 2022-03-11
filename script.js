@@ -8,9 +8,10 @@ const searchFilteredEpisode = (value) => {
 };
 //const allEpisodes = getAllEpisodes();
 let allEpisodes;
+let allShows = getAllShows();
 function setup() {
-  //makePageForEpisodes(allEpisodes);
-  getAllEpisodesApi();
+  selectShowFunctionality();
+   
 }
 
 const formatTitleNumbers = (number) => {
@@ -28,9 +29,12 @@ function displayNumber(allEpisodes, filteredEpisode) {
   currentEpisode.innerHTML = `Displaying ${filteredEpisode}/${allEpisodes} episodes`;
 }
 
-function createSelectFunctionality() {
+function selectEpisodesFunctionality() {
   let select = document.getElementById("select-episode");
   let option = document.createElement("option");
+  while (select.firstChild) {
+    select.removeChild(select.lastChild);
+  } 
   option.value = "";
   option.innerHTML = "Select Episodes";
   select.add(option);
@@ -82,15 +86,43 @@ function makePageForEpisodes(episodeList) {
 
 window.onload = setup;
 
-function getAllEpisodesApi() {
-  return fetch("https://api.tvmaze.com/shows/82/episodes")
-    .then((response) => response.json())
-    .then((data) => {
-      allEpisodes = data;
-      makePageForEpisodes(allEpisodes);
-      createSelectFunctionality();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+function selectShowFunctionality() {
+  let select = document.getElementById("select-shows");
+   let option = document.createElement("option");
+   option.value = "";
+   option.innerHTML = "Select Shows";
+  select.add(option);
+  allShows.forEach((show) => {
+    let option = document.createElement("option");
+    option.value = show.id;
+    option.innerHTML = show.name;
+    select.add(option);
+  });
+
+  const filteredShowById = (id) => {
+    return allShows.filter((show) => show.id.toString() === id);
+  };
+  select.addEventListener("change", (e) => {
+    if (e.target.value === "") {
+     //makePageForEpisodes(allEpisodes);
+    } else {
+     
+      let selectedShowId = (e.target.value);
+      // makePageForEpisodes(selectedEpisode);
+      console.log(selectedShowId)
+fetch('https://api.tvmaze.com/shows/'+ selectedShowId + '/episodes')
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data)
+    allEpisodes = data;
+    selectEpisodesFunctionality()
+    makePageForEpisodes(allEpisodes)
+      })
+    }
+  });
 }
+ 
+
+
+
+ 

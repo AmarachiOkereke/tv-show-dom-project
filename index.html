@@ -11,7 +11,8 @@
   <body>
     <h1>TV PROJECT</h1>
     <div class ="form">
-    <select name = "episodes" id = "select-episode" class ="select-epi"></select>
+      <select name ="shows" id ="select-shows" class ="select"></select>
+    <select name = "episodes" id = "select-episode" class ="select"></select>
     <input id ="search" type = "text" class = "input" placeholder="search episodes...">
     <p id = "display-episode-number" class = "display"></p>
     </div>
@@ -21,6 +22,8 @@
     All data used on this page is from <a href="https://www.tvmaze.com/" target="_blank">TVMaze</a> and is used here for strictly
     educational purposes.
   </p>
+  <!-- Loads a provided function called getAllShows() which returns all shows -->
+    <script src="shows.js"></script>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
